@@ -1,0 +1,10 @@
+Clase Lista
+
+Clase de Java que permite emplear arrays estáticos en diferentes proyectos
+
+- Insertar objeto en la última posición del array.
+- Insertar objeto en la posición indicada ordenando el array previamente.
+- Eliminar objeto en la útlima posición (es una eliminación lógica).
+- Eliminar objeto en la posición indicada ordenando el array previamente (es una eliminación lógica).
+- Devolver la posición de un objeto del array.
+- Devolver el objeto de una posición del array.
