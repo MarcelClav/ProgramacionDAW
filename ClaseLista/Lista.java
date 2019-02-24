@@ -32,20 +32,17 @@ public class Lista {
 	
 	public boolean insertar(Object o, int posicion) {
 		boolean testigo = false;
-		
-		if (posicion < contenedor.length && posicion >= 0) {
 				
-			if (numElementos < contenedor.length) {
+		if (posicion <= numElementos && posicion >= 0) {
+			
+			for (int i = numElementos; i > posicion; i--) {
 				
-				for (int i = numElementos; i > posicion; i--) {
-					
-					contenedor[i] = contenedor[i-1];
-				}
-				
-				contenedor[posicion] = o;
-				numElementos++;
-				testigo = true;
+				contenedor[i] = contenedor[i-1];
 			}
+			
+			contenedor[posicion] = o;
+			numElementos++;
+			testigo = true;
 		}
 		
 		return testigo;		
@@ -58,6 +55,8 @@ public class Lista {
 		
 		if (posicion < numElementos && posicion >= 0) {
 			o = contenedor[posicion];
+		} else {
+			o = null;
 		}
 		
 		return o;		
@@ -65,8 +64,12 @@ public class Lista {
 	
 	
 	public boolean eliminar() {
-		boolean testigo = true;
-		numElementos--;
+		boolean testigo = false;
+		
+		if (numElementos >= 1) {
+			numElementos--;
+			testigo = true;
+		}		
 		return testigo;
 	}
 	
@@ -74,12 +77,17 @@ public class Lista {
 	public boolean eliminar(int posicion) {
 		boolean testigo = false;
 		
-		if (posicion < numElementos && posicion >= 0) {
+		if (posicion < (numElementos - 1) && posicion >= 0) {
 			
 			for (int i = posicion; i < numElementos; i++) {
 				contenedor[i] = contenedor[i+1];
 			}
 			
+			numElementos--;
+			testigo = true;
+		}
+		
+		if (posicion == (numElementos - 1) && posicion >= 0) {
 			numElementos--;
 			testigo = true;
 		}
@@ -99,29 +107,4 @@ public class Lista {
 		
 		return posicion;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
